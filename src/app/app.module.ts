@@ -10,13 +10,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { ChatComponent } from './component/chat/chat.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import {Consts} from './shared/Consts';
+import {InjectableRxStompConfig, RxStompService, rxStompServiceFactory} from '@stomp/ng2-stompjs';
+import { myRxStompConfig } from './shared/myRxStompConfig';
+import { MessagesComponent } from './component/messages/messages.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
-    ChatComponent
+    ChatComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +29,9 @@ import {Consts} from './shared/Consts';
     AppRoutingModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true},
+    {provide: InjectableRxStompConfig, useValue: myRxStompConfig},
+    {provide: RxStompService, useFactory: rxStompServiceFactory, deps: [InjectableRxStompConfig]},
   ],
   bootstrap: [AppComponent]
 })
