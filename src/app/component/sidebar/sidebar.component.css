@@ -1,0 +1,12 @@
+.nav-link, h3 {
+  color: #b1bace;
+}
+
+.nav-link.active {
+  background-color: #1c2331;
+}
+
+.rounded {
+  border-radius: 10em !important;
+}
+

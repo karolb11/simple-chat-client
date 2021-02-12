@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {RxStompService} from '@stomp/ng2-stompjs';
 import {Message} from '../shared/Message';
 
@@ -23,10 +23,10 @@ export class ChatService {
   watchTopics() {
     this.rxStompService.watch({destination: '/user/queue/errors'}).subscribe();
     this.rxStompService.watch({destination: '/user/queue/reply'})
-        .subscribe(message => {
-          const parsedMsg = JSON.parse(message.body);
-          this.receivedMessage.push(parsedMsg);
-        });
+      .subscribe(message => {
+        const parsedMsg = JSON.parse(message.body);
+        this.receivedMessage.push(parsedMsg);
+      });
     this.rxStompService.watch({destination: '/topic/public'}).subscribe();
   }
 }

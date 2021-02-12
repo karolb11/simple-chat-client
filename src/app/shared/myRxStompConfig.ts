@@ -1,5 +1,5 @@
-import { StompConfig, StompService } from '@stomp/ng2-stompjs';
-import { InjectableRxStompConfig } from '@stomp/ng2-stompjs';
+import {StompConfig, StompService} from '@stomp/ng2-stompjs';
+import {InjectableRxStompConfig} from '@stomp/ng2-stompjs';
 import {Consts} from './Consts';
 
 export const myRxStompConfig: InjectableRxStompConfig = {

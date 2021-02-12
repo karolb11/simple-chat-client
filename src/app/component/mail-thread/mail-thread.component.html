@@ -1,0 +1,13 @@
+<article class="article p-2 ml-3 mr-3 d-flex align-content-stretch border-bottom">
+  <div class="mr-3">
+    <ngx-avatar name="{{newestMessageAuthor.username}}"></ngx-avatar>
+  </div>
+  <div class="d-flex align-content-stretch flex-column align-items-stretch w-100">
+    <div class="d-flex justify-content-between">
+      <span class="font-weight-bolder">{{newestMessageAuthor.username}}</span>
+      <span class="font-small font-italic">{{newestMessage.createdAt | transformDate}}</span>
+    </div>
+    <h5 class="message-title mb-1">{{mailThread.subject}}</h5>
+    <div class="">{{newestMessage.content}}</div>
+  </div>
+</article>

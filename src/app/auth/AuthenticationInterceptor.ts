@@ -7,12 +7,13 @@ import {catchError} from 'rxjs/operators';
 @Injectable()
 export class AuthenticationInterceptor implements HttpInterceptor {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+  }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const clonedRequest = req.clone({withCredentials: true});
     return next.handle(clonedRequest)
-        .pipe(catchError(err => this.handleAuthError(err)));
+      .pipe(catchError(err => this.handleAuthError(err)));
   }
 
   private handleAuthError(err: HttpErrorResponse): Observable<any> {

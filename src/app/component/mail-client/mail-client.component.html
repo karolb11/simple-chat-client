@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3 col-xl-2 mdb-color darken-3 m-0 p-0 text-light vh-100 border-right z-depth-1">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-9 col-xl-4 p-0">
+      <div class="heading-label pl-4 m-0">
+        <form class="form-inline md-form form-sm m-0">
+          <mdb-icon fas icon="search" aria-hidden="true"></mdb-icon>
+          <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search"
+                 mdbInput>
+        </form>
+      </div>
+      <div class="indigo lighten-5 pl-0">
+        <ng-container *ngFor="let thread of mailThreads">
+          <div [class]="'mail-thread border-bottom '+(this.openedThread == thread?'active':'')">
+            <app-mail-thread [mailThread]="thread" (click)="openThread(thread)"></app-mail-thread>
+            <div class="d-xl-none" *ngIf="this.openedThread == thread">
+              <app-mail-thread-view [thread]="openedThread"></app-mail-thread-view>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="col-xl-6 d-none d-xl-block border-left shadow">
+      <app-mail-thread-view *ngIf="openedThread != null" [thread]="openedThread"></app-mail-thread-view>
+    </div>
+  </div>
+</div>
+

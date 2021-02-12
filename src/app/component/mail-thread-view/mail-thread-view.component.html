@@ -1,0 +1,28 @@
+<div class="p-3">
+  <div class="d-none d-xl-flex flex-row align-items-center justify-content-between mb-1">
+    <div class="d-flex flex-row align-items-center p-2">
+      <ng-container *ngFor="let member of members">
+        <ngx-avatar name="{{member.username}}" class="mr-1"></ngx-avatar>
+      </ng-container>
+    </div>
+    <div>
+      <mdb-icon (click)="replySwitch()" fas icon="reply" aria-hidden="true" class="mr-1"></mdb-icon>
+      <mdb-icon fas icon="share" aria-hidden="true"></mdb-icon>
+    </div>
+  </div>
+  <div class="p-2">
+    <h2 class="font-weight-bold">{{thread.subject}}</h2>
+  </div>
+  <div>
+    <ng-container *ngFor="let message of messages">
+      <app-mail-message [message]="message"></app-mail-message>
+    </ng-container>
+  </div>
+  <div *ngIf="replyActive" class="bg-light p-3 mt-3 shadow rounded">
+    <div class="md-form m-0">
+      <textarea [(ngModel)]="response" type="text" class="md-textarea md-textarea-auto form-control"></textarea>
+      <label>Type your reply</label>
+      <button (click)="sendMessage()" mdbBtn type="button" color="secondary" outline="true" mdbWavesEffect>Send</button>
+    </div>
+  </div>
+</div>

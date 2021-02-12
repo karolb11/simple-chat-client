@@ -1,0 +1,12 @@
+<article class="article border-bottom p-2">
+  <div class="d-flex flex-row justify-content-between">
+    <div class="d-flex flex-row align-items-center">
+      <ngx-avatar name="{{author.username}}"></ngx-avatar>
+      <span class="ml-1 font-weight-bolder">{{author.username}}</span>
+    </div>
+    <div>
+      <span class="font-small font-italic">{{message.createdAt | transformDate}}</span>
+    </div>
+  </div>
+  <div class="font-weight-bolder mt-2">{{message.content}}</div>
+</article>

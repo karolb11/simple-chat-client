@@ -1,2 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~bootstrap/dist/css/bootstrap.min.css';
+*:not(i) {
+  font-family: 'Lato', sans-serif !important;
+}
+
+body {
+  background-color: #f6f6f6;
+}
+
+.heading-label {
+  height: 3rem !important;
+}
